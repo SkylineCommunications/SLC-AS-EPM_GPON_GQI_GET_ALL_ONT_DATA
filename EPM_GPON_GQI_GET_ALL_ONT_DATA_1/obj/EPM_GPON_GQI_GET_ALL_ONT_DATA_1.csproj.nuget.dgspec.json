@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\GIT\\Automation\\Generic\\DataMiner Solutions\\EPM_GPON_GQI_GET_ALL_ONT_DATA\\EPM_GPON_GQI_GET_ALL_ONT_DATA_1\\EPM_GPON_GQI_GET_ALL_ONT_DATA_1.csproj": {}
+    "C:\\GIT\\GitHub\\Automation\\SLC-AS-EPM_GPON_GQI_GET_ALL_ONT_DATA\\EPM_GPON_GQI_GET_ALL_ONT_DATA_1\\EPM_GPON_GQI_GET_ALL_ONT_DATA_1.csproj": {}
   },
   "projects": {
-    "C:\\GIT\\Automation\\Generic\\DataMiner Solutions\\EPM_GPON_GQI_GET_ALL_ONT_DATA\\EPM_GPON_GQI_GET_ALL_ONT_DATA_1\\EPM_GPON_GQI_GET_ALL_ONT_DATA_1.csproj": {
+    "C:\\GIT\\GitHub\\Automation\\SLC-AS-EPM_GPON_GQI_GET_ALL_ONT_DATA\\EPM_GPON_GQI_GET_ALL_ONT_DATA_1\\EPM_GPON_GQI_GET_ALL_ONT_DATA_1.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\GIT\\Automation\\Generic\\DataMiner Solutions\\EPM_GPON_GQI_GET_ALL_ONT_DATA\\EPM_GPON_GQI_GET_ALL_ONT_DATA_1\\EPM_GPON_GQI_GET_ALL_ONT_DATA_1.csproj",
+        "projectUniqueName": "C:\\GIT\\GitHub\\Automation\\SLC-AS-EPM_GPON_GQI_GET_ALL_ONT_DATA\\EPM_GPON_GQI_GET_ALL_ONT_DATA_1\\EPM_GPON_GQI_GET_ALL_ONT_DATA_1.csproj",
         "projectName": "EPM_GPON_GQI_GET_ALL_ONT_DATA_1",
-        "projectPath": "C:\\GIT\\Automation\\Generic\\DataMiner Solutions\\EPM_GPON_GQI_GET_ALL_ONT_DATA\\EPM_GPON_GQI_GET_ALL_ONT_DATA_1\\EPM_GPON_GQI_GET_ALL_ONT_DATA_1.csproj",
+        "projectPath": "C:\\GIT\\GitHub\\Automation\\SLC-AS-EPM_GPON_GQI_GET_ALL_ONT_DATA\\EPM_GPON_GQI_GET_ALL_ONT_DATA_1\\EPM_GPON_GQI_GET_ALL_ONT_DATA_1.csproj",
         "packagesPath": "C:\\Users\\AldrickGA\\.nuget\\packages\\",
-        "outputPath": "C:\\GIT\\Automation\\Generic\\DataMiner Solutions\\EPM_GPON_GQI_GET_ALL_ONT_DATA\\EPM_GPON_GQI_GET_ALL_ONT_DATA_1\\obj\\",
+        "outputPath": "C:\\GIT\\GitHub\\Automation\\SLC-AS-EPM_GPON_GQI_GET_ALL_ONT_DATA\\EPM_GPON_GQI_GET_ALL_ONT_DATA_1\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\AldrickGA\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -48,12 +48,6 @@
             "Skyline.DataMiner.Files.SLAnalyticsTypes": {
               "target": "Package",
               "version": "[10.3.8, )"
-            },
-            "StyleCop.Analyzers": {
-              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
-              "suppressParent": "All",
-              "target": "Package",
-              "version": "[1.1.118, )"
             }
           },
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.304\\RuntimeIdentifierGraph.json"

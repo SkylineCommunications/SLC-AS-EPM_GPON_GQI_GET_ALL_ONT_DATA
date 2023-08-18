@@ -103,8 +103,6 @@ public class CmData : IGQIDataSource, IGQIInputArguments, IGQIOnInit
 
     private List<GQIRow> listGqiRows = new List<GQIRow> { };
 
-    private List<string> listLogsRows = new List<string> { };
-
     public OnInitOutputArgs OnInit(OnInitInputArgs args)
     {
         _dms = args.DMS;
@@ -164,13 +162,11 @@ public class CmData : IGQIDataSource, IGQIInputArguments, IGQIOnInit
         listGqiRows.Clear();
         try
         {
-            listLogsRows.Add("First Log!");
             frontEndElement = args.GetArgumentValue(frontEndElementArg);
             filterEntity = args.GetArgumentValue(filterEntityArg);
             entityBeTablePid = Convert.ToInt32(args.GetArgumentValue(entityBeTablePidArg));
             entityBeOltsIdx = Convert.ToInt32(args.GetArgumentValue(entityBeOltsIdsArg));
             onlyOfflineOnts = Convert.ToBoolean(args.GetArgumentValue(onlyShowOfflineOntsArg));
-            listLogsRows.Add("Second Log!");
 
             var backEndHelper = GetBackEndElement();
             if (backEndHelper == null)
@@ -178,7 +174,6 @@ public class CmData : IGQIDataSource, IGQIInputArguments, IGQIOnInit
                 return new OnArgumentsProcessedOutputArgs();
             }
 
-            listLogsRows.Add("Third Log!");
             var macFilter = GetRelatedSerialFitler(backEndHelper.ElementId, backEndHelper.EntityId);
 
             if (String.IsNullOrEmpty(macFilter))
@@ -186,35 +181,27 @@ public class CmData : IGQIDataSource, IGQIInputArguments, IGQIOnInit
                 return new OnArgumentsProcessedOutputArgs();
             }
 
-            listLogsRows.Add("Four Log!");
             var ccapTable = GetTable(Convert.ToString(backEndHelper.OLtId), 4000, new List<string>
             {
                 macFilter,
             });
 
-            listLogsRows.Add("Four Log!");
             Dictionary<string, OltOverview> oltsRows = ExtractOltData(ccapTable);
-            listLogsRows.Add("Five Log!");
 
             if (onlyOfflineOnts)
             {
                 AddOnlyOfflineCableModems(oltsRows);
-                listLogsRows.Add("Six Log!");
             }
             else
             {
                 AddAllCableModems(oltsRows);
-                listLogsRows.Add("Seven Log!");
             }
         }
-        catch(Exception ex)
+        catch
         {
-            listLogsRows.Add("Error: " + ex);
-            File.WriteAllLines(@"C:\Users\Administrator\Desktop\GetGpon.txt", listLogsRows.ToArray());
             listGqiRows = new List<GQIRow>();
         }
 
-        File.WriteAllLines(@"C:\Users\Administrator\Desktop\GetGpon.txt", listLogsRows.ToArray());
         return new OnArgumentsProcessedOutputArgs();
     }
 
@@ -495,7 +482,7 @@ public class CmData : IGQIDataSource, IGQIInputArguments, IGQIOnInit
                     new GQICell
                     {
                         Value = oltRow.SupplyVoltage,
-                        DisplayValue = ParseDoubleValue(oltRow.SupplyVoltage, "mV"),
+                        DisplayValue = ParseDoubleValue(oltRow.SupplyVoltage, "V"),
                     },
                     new GQICell
                     {
@@ -610,7 +597,7 @@ public class CmData : IGQIDataSource, IGQIInputArguments, IGQIOnInit
                     new GQICell
                     {
                         Value = oltRow.SupplyVoltage,
-                        DisplayValue = ParseDoubleValue(oltRow.SupplyVoltage, "mV"),
+                        DisplayValue = ParseDoubleValue(oltRow.SupplyVoltage, "V"),
                     },
                     new GQICell
                     {

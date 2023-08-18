@@ -123,9 +123,6 @@
         "runtime": {
           "lib/net462/SLProtoBufLibrary.dll": {}
         }
-      },
-      "StyleCop.Analyzers/1.1.118": {
-        "type": "package"
       }
     }
   },
@@ -319,38 +316,12 @@
         "skyline.dataminer.files.slprotobuflibrary.10.3.8.nupkg.sha512",
         "skyline.dataminer.files.slprotobuflibrary.nuspec"
       ]
-    },
-    "StyleCop.Analyzers/1.1.118": {
-      "sha512": "Onx6ovGSqXSK07n/0eM3ZusiNdB6cIlJdabQhWGgJp3Vooy9AaLS/tigeybOJAobqbtggTamoWndz72JscZBvw==",
-      "type": "package",
-      "path": "stylecop.analyzers/1.1.118",
-      "hasTools": true,
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "LICENSE",
-        "THIRD-PARTY-NOTICES.txt",
-        "analyzers/dotnet/cs/StyleCop.Analyzers.CodeFixes.dll",
-        "analyzers/dotnet/cs/StyleCop.Analyzers.dll",
-        "analyzers/dotnet/cs/de-DE/StyleCop.Analyzers.resources.dll",
-        "analyzers/dotnet/cs/en-GB/StyleCop.Analyzers.resources.dll",
-        "analyzers/dotnet/cs/es-MX/StyleCop.Analyzers.resources.dll",
-        "analyzers/dotnet/cs/fr-FR/StyleCop.Analyzers.resources.dll",
-        "analyzers/dotnet/cs/pl-PL/StyleCop.Analyzers.resources.dll",
-        "analyzers/dotnet/cs/pt-BR/StyleCop.Analyzers.resources.dll",
-        "analyzers/dotnet/cs/ru-RU/StyleCop.Analyzers.resources.dll",
-        "stylecop.analyzers.1.1.118.nupkg.sha512",
-        "stylecop.analyzers.nuspec",
-        "tools/install.ps1",
-        "tools/uninstall.ps1"
-      ]
     }
   },
   "projectFileDependencyGroups": {
     ".NETFramework,Version=v4.6.2": [
       "Skyline.DataMiner.Dev.Automation >= 10.3.8",
-      "Skyline.DataMiner.Files.SLAnalyticsTypes >= 10.3.8",
-      "StyleCop.Analyzers >= 1.1.118"
+      "Skyline.DataMiner.Files.SLAnalyticsTypes >= 10.3.8"
     ]
   },
   "packageFolders": {
@@ -359,11 +330,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\GIT\\Automation\\Generic\\DataMiner Solutions\\EPM_GPON_GQI_GET_ALL_ONT_DATA\\EPM_GPON_GQI_GET_ALL_ONT_DATA_1\\EPM_GPON_GQI_GET_ALL_ONT_DATA_1.csproj",
+      "projectUniqueName": "C:\\GIT\\GitHub\\Automation\\SLC-AS-EPM_GPON_GQI_GET_ALL_ONT_DATA\\EPM_GPON_GQI_GET_ALL_ONT_DATA_1\\EPM_GPON_GQI_GET_ALL_ONT_DATA_1.csproj",
       "projectName": "EPM_GPON_GQI_GET_ALL_ONT_DATA_1",
-      "projectPath": "C:\\GIT\\Automation\\Generic\\DataMiner Solutions\\EPM_GPON_GQI_GET_ALL_ONT_DATA\\EPM_GPON_GQI_GET_ALL_ONT_DATA_1\\EPM_GPON_GQI_GET_ALL_ONT_DATA_1.csproj",
+      "projectPath": "C:\\GIT\\GitHub\\Automation\\SLC-AS-EPM_GPON_GQI_GET_ALL_ONT_DATA\\EPM_GPON_GQI_GET_ALL_ONT_DATA_1\\EPM_GPON_GQI_GET_ALL_ONT_DATA_1.csproj",
       "packagesPath": "C:\\Users\\AldrickGA\\.nuget\\packages\\",
-      "outputPath": "C:\\GIT\\Automation\\Generic\\DataMiner Solutions\\EPM_GPON_GQI_GET_ALL_ONT_DATA\\EPM_GPON_GQI_GET_ALL_ONT_DATA_1\\obj\\",
+      "outputPath": "C:\\GIT\\GitHub\\Automation\\SLC-AS-EPM_GPON_GQI_GET_ALL_ONT_DATA\\EPM_GPON_GQI_GET_ALL_ONT_DATA_1\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\AldrickGA\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -400,12 +371,6 @@
           "Skyline.DataMiner.Files.SLAnalyticsTypes": {
             "target": "Package",
             "version": "[10.3.8, )"
-          },
-          "StyleCop.Analyzers": {
-            "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
-            "suppressParent": "All",
-            "target": "Package",
-            "version": "[1.1.118, )"
           }
         },
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.304\\RuntimeIdentifierGraph.json"
