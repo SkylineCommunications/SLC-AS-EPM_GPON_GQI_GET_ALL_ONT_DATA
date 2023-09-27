@@ -325,28 +325,27 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\AldrickGA\\.nuget\\packages\\": {}
+    "C:\\Users\\SergioSU\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\GIT\\GitHub\\Automation\\SLC-AS-EPM_GPON_GQI_GET_ALL_ONT_DATA\\EPM_GPON_GQI_GET_ALL_ONT_DATA_1\\EPM_GPON_GQI_GET_ALL_ONT_DATA_1.csproj",
+      "projectUniqueName": "C:\\GIT\\Automation\\Generic\\DataMiner Solutions\\SLC-AS-EPM_GPON_GQI_GET_ALL_ONT_DATA\\EPM_GPON_GQI_GET_ALL_ONT_DATA_1\\EPM_GPON_GQI_GET_ALL_ONT_DATA_1.csproj",
       "projectName": "EPM_GPON_GQI_GET_ALL_ONT_DATA_1",
-      "projectPath": "C:\\GIT\\GitHub\\Automation\\SLC-AS-EPM_GPON_GQI_GET_ALL_ONT_DATA\\EPM_GPON_GQI_GET_ALL_ONT_DATA_1\\EPM_GPON_GQI_GET_ALL_ONT_DATA_1.csproj",
-      "packagesPath": "C:\\Users\\AldrickGA\\.nuget\\packages\\",
-      "outputPath": "C:\\GIT\\GitHub\\Automation\\SLC-AS-EPM_GPON_GQI_GET_ALL_ONT_DATA\\EPM_GPON_GQI_GET_ALL_ONT_DATA_1\\obj\\",
+      "projectPath": "C:\\GIT\\Automation\\Generic\\DataMiner Solutions\\SLC-AS-EPM_GPON_GQI_GET_ALL_ONT_DATA\\EPM_GPON_GQI_GET_ALL_ONT_DATA_1\\EPM_GPON_GQI_GET_ALL_ONT_DATA_1.csproj",
+      "packagesPath": "C:\\Users\\SergioSU\\.nuget\\packages\\",
+      "outputPath": "C:\\GIT\\Automation\\Generic\\DataMiner Solutions\\SLC-AS-EPM_GPON_GQI_GET_ALL_ONT_DATA\\EPM_GPON_GQI_GET_ALL_ONT_DATA_1\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\AldrickGA\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\SergioSU\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net462"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {},
-        "https://devcore3/nuget": {}
+        "https://devcore3.skyline.local/nuget/": {}
       },
       "frameworks": {
         "net462": {
