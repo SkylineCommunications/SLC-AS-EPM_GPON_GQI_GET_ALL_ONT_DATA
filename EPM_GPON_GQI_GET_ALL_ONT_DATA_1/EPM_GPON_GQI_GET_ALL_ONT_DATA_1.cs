@@ -188,11 +188,11 @@ public class CmData : IGQIDataSource, IGQIInputArguments, IGQIOnInit
 				return new OnArgumentsProcessedOutputArgs();
 			}
 
-			var ccapTableOntInformation = GetTable(Convert.ToString(backEndHelper.OLtId), 4000, new List<string>
+			var ccapTableOntInformation = GetTable(Convert.ToString(backEndHelper.OltId), 4000, new List<string>
 			{
 				macFilter,
 			});
-			var ccapTableSubscriberInformation = GetTable(Convert.ToString(backEndHelper.OLtId), 6000, new List<string>
+			var ccapTableSubscriberInformation = GetTable(Convert.ToString(backEndHelper.OltId), 6000, new List<string>
 			{
 				macSubscriberFilter,
 			});
@@ -283,7 +283,7 @@ public class CmData : IGQIDataSource, IGQIInputArguments, IGQIOnInit
 					return new BackEndHelper
 					{
 						ElementId = key,
-						OLtId = Convert.ToString(backendEntityTable[entityBeOltsIdx][0].CellValue),
+						OltId = Convert.ToString(backendEntityTable[entityBeOltsIdx][0].CellValue),
 						EntityId = Convert.ToString(backendEntityTable[0][0].CellValue),
 					};
 				}
@@ -397,10 +397,6 @@ public class CmData : IGQIDataSource, IGQIInputArguments, IGQIOnInit
 		if (String.IsNullOrEmpty(stringValue) || stringValue == "-999")
 		{
 			return "No Reported Data";
-		}
-		else if (stringValue == "-1")
-		{
-			return "N/A";
 		}
 
 		return stringValue;
@@ -613,23 +609,23 @@ public class CmData : IGQIDataSource, IGQIInputArguments, IGQIOnInit
 					{
 						new GQICell
 						{
-							Value = ParseStringValue("-1"),
+							Value = "N/A",
 						},
 						new GQICell
 						{
-							Value = ParseStringValue("-1"),
+							Value = "N/A",
 						},
 						new GQICell
 						{
-							Value = ParseStringValue("-1"),
+							Value = "N/A",
 						},
 						new GQICell
 						{
-							Value = ParseStringValue("-1"),
+							Value = "N/A",
 						},
 						new GQICell
 						{
-							Value = ParseStringValue("-1"),
+							Value = "N/A",
 						}
 					};
 			}
@@ -646,7 +642,7 @@ public class CmData : IGQIDataSource, IGQIInputArguments, IGQIOnInit
 	{
 		foreach (var oltRow in oltRows.Values)
 		{
-			if (oltRow.BiasCurrentState == 2 || oltRow.SupplyVoltageState == 2 || oltRow.RxPowerState == 2 || oltRow.TxPowerState == 2 || oltRow.TransceiverTemperatureState == 2)
+			if (oltRow.BiasCurrentState == (int)OltState.Oos || oltRow.SupplyVoltageState == (int)OltState.Oos || oltRow.RxPowerState == (int)OltState.Oos || oltRow.TxPowerState == (int)OltState.Oos || oltRow.TransceiverTemperatureState == (int)OltState.Oos)
 			{
 				List<GQICell> listGqiCells = new List<GQICell>
 				{
@@ -784,23 +780,23 @@ public class CmData : IGQIDataSource, IGQIInputArguments, IGQIOnInit
 					{
 						new GQICell
 						{
-							Value = ParseStringValue("-1"),
+							Value = "N/A",
 						},
 						new GQICell
 						{
-							Value = ParseStringValue("-1"),
+							Value = "N/A",
 						},
 						new GQICell
 						{
-							Value = ParseStringValue("-1"),
+							Value = "N/A",
 						},
 						new GQICell
 						{
-							Value = ParseStringValue("-1"),
+							Value = "N/A",
 						},
 						new GQICell
 						{
-							Value = ParseStringValue("-1"),
+							Value = "N/A",
 						}
 					};
 				}
@@ -813,11 +809,16 @@ public class CmData : IGQIDataSource, IGQIInputArguments, IGQIOnInit
 	}
 }
 
+enum OltState
+{
+	Oos = 2,
+}
+
 public class BackEndHelper
 {
 	public string ElementId { get; set; }
 
-	public string OLtId { get; set; }
+	public string OltId { get; set; }
 
 	public string EntityId { get; set; }
 }
