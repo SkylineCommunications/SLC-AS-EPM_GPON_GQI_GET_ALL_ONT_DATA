@@ -474,6 +474,8 @@ public class CmData : IGQIDataSource, IGQIInputArguments, IGQIOnInit
 	{
 		foreach (var oltRow in oltRows.Values)
 		{
+			var subscriberInformation = OltSubscriberRows.ContainsKey(oltRow.OntId) ? OltSubscriberRows[oltRow.OntId]: new SubscriberOverview();
+
 			List<GQICell> listGqiCells = new List<GQICell>
 				{
 					new GQICell
@@ -482,27 +484,27 @@ public class CmData : IGQIDataSource, IGQIInputArguments, IGQIOnInit
 					},
 					new GQICell
 					{
-						Value = oltRow.SerialNumber,
+						Value = oltRow.SerialNumber ?? subscriberInformation.Exception,
 					},
 					new GQICell
 					{
-						Value = OltSubscriberRows.ContainsKey(oltRow.OntId) ? ParseStringValue(OltSubscriberRows[oltRow.OntId].ContractId) : "N/A",
+						Value = subscriberInformation.ContractId ?? subscriberInformation.Exception,
 					},
 					new GQICell
 					{
-						Value = OltSubscriberRows.ContainsKey(oltRow.OntId) ? ParseStringValue(OltSubscriberRows[oltRow.OntId].MainStreet) : "N/A" ,
+						Value = subscriberInformation.MainStreet ?? subscriberInformation.Exception,
 					},
 					new GQICell
 					{
-						Value = OltSubscriberRows.ContainsKey(oltRow.OntId) ? ParseStringValue(OltSubscriberRows[oltRow.OntId].Street1): "N/A",
+						Value = subscriberInformation.Street1 ?? subscriberInformation.Exception,
 					},
 					new GQICell
 					{
-						Value = OltSubscriberRows.ContainsKey(oltRow.OntId) ? ParseStringValue(OltSubscriberRows[oltRow.OntId].Street2): "N/A",
+						Value = subscriberInformation.Street2 ?? subscriberInformation.Exception,
 					},
 					new GQICell
 					{
-						Value = OltSubscriberRows.ContainsKey(oltRow.OntId) ? ParseStringValue(OltSubscriberRows[oltRow.OntId].Neighborhood): "N/A",
+						Value = subscriberInformation.Neighborhood ?? subscriberInformation.Exception,
 					},
 					new GQICell
 					{
@@ -610,6 +612,8 @@ public class CmData : IGQIDataSource, IGQIInputArguments, IGQIOnInit
 		{
 			if (oltRow.BiasCurrentState == (int)OltState.Oos || oltRow.SupplyVoltageState == (int)OltState.Oos || oltRow.RxPowerState == (int)OltState.Oos || oltRow.TxPowerState == (int)OltState.Oos || oltRow.TransceiverTemperatureState == (int)OltState.Oos)
 			{
+				var subscriberInformation = OltSubscriberRows.ContainsKey(oltRow.OntId) ? OltSubscriberRows[oltRow.OntId] : new SubscriberOverview();
+
 				List<GQICell> listGqiCells = new List<GQICell>
 				{
 					new GQICell
@@ -618,27 +622,27 @@ public class CmData : IGQIDataSource, IGQIInputArguments, IGQIOnInit
 					},
 					new GQICell
 					{
-						Value = oltRow.SerialNumber,
+						Value = oltRow.SerialNumber ?? subscriberInformation.Exception,
 					},
 					new GQICell
 					{
-						Value = OltSubscriberRows.ContainsKey(oltRow.OntId) ? ParseStringValue(OltSubscriberRows[oltRow.OntId].ContractId) : "N/A",
+						Value = subscriberInformation.ContractId ?? subscriberInformation.Exception,
 					},
 					new GQICell
 					{
-						Value = OltSubscriberRows.ContainsKey(oltRow.OntId) ? ParseStringValue(OltSubscriberRows[oltRow.OntId].MainStreet) : "N/A" ,
+						Value = subscriberInformation.MainStreet ?? subscriberInformation.Exception,
 					},
 					new GQICell
 					{
-						Value = OltSubscriberRows.ContainsKey(oltRow.OntId) ? ParseStringValue(OltSubscriberRows[oltRow.OntId].Street1): "N/A",
+						Value = subscriberInformation.Street1 ?? subscriberInformation.Exception,
 					},
 					new GQICell
 					{
-						Value = OltSubscriberRows.ContainsKey(oltRow.OntId) ? ParseStringValue(OltSubscriberRows[oltRow.OntId].Street2): "N/A",
+						Value = subscriberInformation.Street2 ?? subscriberInformation.Exception,
 					},
 					new GQICell
 					{
-						Value = OltSubscriberRows.ContainsKey(oltRow.OntId) ? ParseStringValue(OltSubscriberRows[oltRow.OntId].Neighborhood): "N/A",
+						Value = subscriberInformation.Neighborhood ?? subscriberInformation.Exception,
 					},
 					new GQICell
 					{
@@ -825,4 +829,11 @@ public class SubscriberOverview
 	public string Street2 { get; set; }
 
 	public string Neighborhood { get; set; }
+
+	public string Exception { get; set; }
+
+	public SubscriberOverview()
+	{
+		Exception = "N/A";
+	}
 }
