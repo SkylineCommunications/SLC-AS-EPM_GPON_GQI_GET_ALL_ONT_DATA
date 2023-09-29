@@ -484,27 +484,27 @@ public class CmData : IGQIDataSource, IGQIInputArguments, IGQIOnInit
 					},
 					new GQICell
 					{
-						Value = oltRow.SerialNumber ?? subscriberInformation.Exception,
+						Value = oltRow.SerialNumber,
 					},
 					new GQICell
 					{
-						Value = subscriberInformation.ContractId ?? subscriberInformation.Exception,
+						Value = subscriberInformation.ContractId,
 					},
 					new GQICell
 					{
-						Value = subscriberInformation.MainStreet ?? subscriberInformation.Exception,
+						Value = subscriberInformation.MainStreet,
 					},
 					new GQICell
 					{
-						Value = subscriberInformation.Street1 ?? subscriberInformation.Exception,
+						Value = subscriberInformation.Street1,
 					},
 					new GQICell
 					{
-						Value = subscriberInformation.Street2 ?? subscriberInformation.Exception,
+						Value = subscriberInformation.Street2,
 					},
 					new GQICell
 					{
-						Value = subscriberInformation.Neighborhood ?? subscriberInformation.Exception,
+						Value = subscriberInformation.Neighborhood,
 					},
 					new GQICell
 					{
@@ -622,27 +622,27 @@ public class CmData : IGQIDataSource, IGQIInputArguments, IGQIOnInit
 					},
 					new GQICell
 					{
-						Value = oltRow.SerialNumber ?? subscriberInformation.Exception,
+						Value = oltRow.SerialNumber,
 					},
 					new GQICell
 					{
-						Value = subscriberInformation.ContractId ?? subscriberInformation.Exception,
+						Value = subscriberInformation.ContractId,
 					},
 					new GQICell
 					{
-						Value = subscriberInformation.MainStreet ?? subscriberInformation.Exception,
+						Value = subscriberInformation.MainStreet,
 					},
 					new GQICell
 					{
-						Value = subscriberInformation.Street1 ?? subscriberInformation.Exception,
+						Value = subscriberInformation.Street1,
 					},
 					new GQICell
 					{
-						Value = subscriberInformation.Street2 ?? subscriberInformation.Exception,
+						Value = subscriberInformation.Street2,
 					},
 					new GQICell
 					{
-						Value = subscriberInformation.Neighborhood ?? subscriberInformation.Exception,
+						Value = subscriberInformation.Neighborhood,
 					},
 					new GQICell
 					{
@@ -830,10 +830,15 @@ public class SubscriberOverview
 
 	public string Neighborhood { get; set; }
 
-	public string Exception { get; set; }
 
 	public SubscriberOverview()
 	{
-		Exception = "N/A";
+		OntId = "N/A";
+		SerialNumber = "N/A";
+		ContractId = "N/A";
+		MainStreet = "N/A";
+		Street1 = "N/A";
+		Street2 = "N/A";
+		Neighborhood = "N/A";
 	}
 }
