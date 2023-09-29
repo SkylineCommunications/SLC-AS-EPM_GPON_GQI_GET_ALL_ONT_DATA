@@ -129,6 +129,11 @@ public class CmData : IGQIDataSource, IGQIInputArguments, IGQIOnInit
 		{
 			new GQIStringColumn("ONT ID"),
 			new GQIStringColumn("ONT Serial Number"),
+			new GQIStringColumn("Contract ID"),
+			new GQIStringColumn("Main Street"),
+			new GQIStringColumn("Street 1"),
+			new GQIStringColumn("Street 2"),
+			new GQIStringColumn("Neighborhood"),
 			new GQIStringColumn("Description"),
 			new GQIStringColumn("Hardware Version"),
 			new GQIStringColumn("Manufacturer"),
@@ -148,11 +153,7 @@ public class CmData : IGQIDataSource, IGQIInputArguments, IGQIOnInit
 			new GQIIntColumn("Tx Power State"),
 			new GQIIntColumn("Transceiver Temperature State"),
 			new GQIDateTimeColumn("Last Data Update"),
-			new GQIStringColumn("Contract ID"),
-			new GQIStringColumn("Main Street"),
-			new GQIStringColumn("Street 1"),
-			new GQIStringColumn("Street 2"),
-			new GQIStringColumn("Neighborhood"),
+
 		};
 	}
 
@@ -304,7 +305,6 @@ public class CmData : IGQIDataSource, IGQIInputArguments, IGQIOnInit
 
 				if (!String.IsNullOrEmpty(ontSerial))
 				{
-					//macFilter.Append("(4002==" + ontSerial + ") OR ");
 					macFilter.Append(string.Format("({0}=={1}) OR ", comparisonValue, ontSerial));
 				}
 			}
@@ -469,7 +469,7 @@ public class CmData : IGQIDataSource, IGQIInputArguments, IGQIOnInit
 
 		return oltRows;
 	}
-	
+
 	private void AddAllOnts(Dictionary<string, OltOverview> oltRows, Dictionary<string, SubscriberOverview> OltSubscriberRows)
 	{
 		foreach (var oltRow in oltRows.Values)
@@ -483,6 +483,26 @@ public class CmData : IGQIDataSource, IGQIInputArguments, IGQIOnInit
 					new GQICell
 					{
 						Value = oltRow.SerialNumber,
+					},
+					new GQICell
+					{
+						Value = OltSubscriberRows.ContainsKey(oltRow.OntId) ? ParseStringValue(OltSubscriberRows[oltRow.OntId].ContractId) : "N/A",
+					},
+					new GQICell
+					{
+						Value = OltSubscriberRows.ContainsKey(oltRow.OntId) ? ParseStringValue(OltSubscriberRows[oltRow.OntId].MainStreet) : "N/A" ,
+					},
+					new GQICell
+					{
+						Value = OltSubscriberRows.ContainsKey(oltRow.OntId) ? ParseStringValue(OltSubscriberRows[oltRow.OntId].Street1): "N/A",
+					},
+					new GQICell
+					{
+						Value = OltSubscriberRows.ContainsKey(oltRow.OntId) ? ParseStringValue(OltSubscriberRows[oltRow.OntId].Street2): "N/A",
+					},
+					new GQICell
+					{
+						Value = OltSubscriberRows.ContainsKey(oltRow.OntId) ? ParseStringValue(OltSubscriberRows[oltRow.OntId].Neighborhood): "N/A",
 					},
 					new GQICell
 					{
@@ -576,60 +596,6 @@ public class CmData : IGQIDataSource, IGQIInputArguments, IGQIOnInit
 						DisplayValue = ParseDateTimeString(oltRow.LastDataUpdate),
 					},
 				};
-			List<GQICell> listGqiCellsCoparision;
-			if (OltSubscriberRows.ContainsKey(oltRow.OntId))
-			{
-				listGqiCellsCoparision = new List<GQICell>
-					{
-						new GQICell
-						{
-							Value = ParseStringValue(OltSubscriberRows[oltRow.OntId].ContractId),
-						},
-						new GQICell
-						{
-							Value = ParseStringValue(OltSubscriberRows[oltRow.OntId].MainStreet),
-						},
-						new GQICell
-						{
-							Value = ParseStringValue(OltSubscriberRows[oltRow.OntId].Street1),
-						},
-						new GQICell
-						{
-							Value = ParseStringValue(OltSubscriberRows[oltRow.OntId].Street2),
-						},
-						new GQICell
-						{
-							Value = ParseStringValue(OltSubscriberRows[oltRow.OntId].Neighborhood),
-						}
-					};
-			}
-			else
-			{
-				listGqiCellsCoparision = new List<GQICell>
-					{
-						new GQICell
-						{
-							Value = "N/A",
-						},
-						new GQICell
-						{
-							Value = "N/A",
-						},
-						new GQICell
-						{
-							Value = "N/A",
-						},
-						new GQICell
-						{
-							Value = "N/A",
-						},
-						new GQICell
-						{
-							Value = "N/A",
-						}
-					};
-			}
-			listGqiCells = listGqiCells.Concat(listGqiCellsCoparision).ToList();
 			var gqiRow = new GQIRow(listGqiCells.ToArray());
 
 			listGqiRows.Add(gqiRow);
@@ -656,6 +622,26 @@ public class CmData : IGQIDataSource, IGQIInputArguments, IGQIOnInit
 					},
 					new GQICell
 					{
+						Value = OltSubscriberRows.ContainsKey(oltRow.OntId) ? ParseStringValue(OltSubscriberRows[oltRow.OntId].ContractId) : "N/A",
+					},
+					new GQICell
+					{
+						Value = OltSubscriberRows.ContainsKey(oltRow.OntId) ? ParseStringValue(OltSubscriberRows[oltRow.OntId].MainStreet) : "N/A" ,
+					},
+					new GQICell
+					{
+						Value = OltSubscriberRows.ContainsKey(oltRow.OntId) ? ParseStringValue(OltSubscriberRows[oltRow.OntId].Street1): "N/A",
+					},
+					new GQICell
+					{
+						Value = OltSubscriberRows.ContainsKey(oltRow.OntId) ? ParseStringValue(OltSubscriberRows[oltRow.OntId].Street2): "N/A",
+					},
+					new GQICell
+					{
+						Value = OltSubscriberRows.ContainsKey(oltRow.OntId) ? ParseStringValue(OltSubscriberRows[oltRow.OntId].Neighborhood): "N/A",
+					},
+					new GQICell
+					{
 						Value = ParseStringValue(oltRow.Description),
 					},
 					new GQICell
@@ -747,60 +733,7 @@ public class CmData : IGQIDataSource, IGQIInputArguments, IGQIOnInit
 					},
 
 				};
-				List<GQICell> listGqiCellsCoparision;
-				if (OltSubscriberRows.ContainsKey(oltRow.OntId))
-				{
-					listGqiCellsCoparision = new List<GQICell>
-					{
-						new GQICell
-						{
-							Value = ParseStringValue(OltSubscriberRows[oltRow.OntId].ContractId),
-						},
-						new GQICell
-						{
-							Value = ParseStringValue(OltSubscriberRows[oltRow.OntId].MainStreet),
-						},
-						new GQICell
-						{
-							Value = ParseStringValue(OltSubscriberRows[oltRow.OntId].Street1),
-						},
-						new GQICell
-						{
-							Value = ParseStringValue(OltSubscriberRows[oltRow.OntId].Street2),
-						},
-						new GQICell
-						{
-							Value = ParseStringValue(OltSubscriberRows[oltRow.OntId].Neighborhood),
-						}
-					};
-				}
-				else
-				{
-					listGqiCellsCoparision = new List<GQICell>
-					{
-						new GQICell
-						{
-							Value = "N/A",
-						},
-						new GQICell
-						{
-							Value = "N/A",
-						},
-						new GQICell
-						{
-							Value = "N/A",
-						},
-						new GQICell
-						{
-							Value = "N/A",
-						},
-						new GQICell
-						{
-							Value = "N/A",
-						}
-					};
-				}
-				listGqiCells =  listGqiCells.Concat(listGqiCellsCoparision).ToList();
+				
 				var gqiRow = new GQIRow(listGqiCells.ToArray());
 
 				listGqiRows.Add(gqiRow);
